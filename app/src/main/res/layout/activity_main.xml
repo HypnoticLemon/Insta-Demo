@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vikrant.demoapp27.MainActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.vikrant.demoapp27.Util.RoundImageView
+            android:id="@+id/profileImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/lblName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name :"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/profileImage"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/profileImage" />
+
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/lblName"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/lblName" />
+
+
+        <TextView
+            android:id="@+id/lblUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Name :"
+            android:layout_below="@+id/lblName"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/profileImage"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/profileImage" />
+
+        <TextView
+            android:id="@+id/txtUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblName"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/lblUserName"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/lblUserName" />
+
+
+
+        <TextView
+            android:id="@+id/lblFollower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follwers :"
+            android:layout_below="@+id/lblUserName"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/profileImage"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/profileImage" />
+
+
+
+        <TextView
+            android:id="@+id/txtFollower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblUserName"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/lblFollower"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/lblFollower" />
+
+
+        <TextView
+            android:id="@+id/lblFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Following :"
+            android:layout_below="@+id/lblFollower"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/profileImage"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/profileImage" />
+
+        <TextView
+            android:id="@+id/txtFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblFollower"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/lblFollowing"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/lblFollowing" />
+
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnInsta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="461dp"
+        android:text="@string/login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+</android.support.constraint.ConstraintLayout>
