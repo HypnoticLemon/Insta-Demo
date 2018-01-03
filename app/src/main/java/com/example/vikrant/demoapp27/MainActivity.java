@@ -1,6 +1,7 @@
 package com.example.vikrant.demoapp27;
 
 import android.app.ProgressDialog;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
@@ -28,6 +29,8 @@ import com.example.vikrant.demoapp27.Util.Constants;
 import com.example.vikrant.demoapp27.Util.InstagramApp;
 import com.example.vikrant.demoapp27.Util.RoundImageView;
 import com.example.vikrant.demoapp27.Util.Utils;
+import com.example.vikrant.demoapp27.database.UserList;
+import com.example.vikrant.demoapp27.database.UserListDAO;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RoundImageView profileImage;
     private RelativeLayout relativeDetails;
     private String TAG = MainActivity.class.getSimpleName();
+    private UserListDAO userListDAO;
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         objectInitialization();
         eventListener();
 
-
+        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         mApp = new InstagramApp(this, Constants.CLIENT_ID,
                 Constants.CLIENT_SECRET, Constants.CALLBACK_URL);
         mApp.setListener(new InstagramApp.OAuthAuthenticationListener() {
@@ -173,6 +178,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txtFollowing.setText(userInfoHashmap.get("followed_by"));
                 txtUserName.setText(userInfoHashmap.get("username"));
 
+                UserList userList = userViewModel.getUserFromId(Integer.parseInt(userInfoHashmap.get("id")));
+                if (userList != null) {
+                    Log.e(TAG, "handleMessage: userList not null");
+                } else {
+                    Log.e(TAG, "handleMessage: user list null");
+
+                }
 
                 Log.e(TAG, "counts: " + userInfoHashmap.get("counts"));
                 Log.e(TAG, "Name: " + userInfoHashmap.get("full_name"));

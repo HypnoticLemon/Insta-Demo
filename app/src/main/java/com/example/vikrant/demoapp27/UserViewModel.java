@@ -33,4 +33,8 @@ public class UserViewModel extends AndroidViewModel {
     public void insert(UserList userList) {
         mRepository.insert(userList);
     }
+
+    public UserList getUserFromId(int id) {
+        return mRepository.searchId(id);
+    }
 }

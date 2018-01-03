@@ -22,7 +22,7 @@ public class UserListRepository {
     UserListRepository(Application application) {
         AppDatabase db = AppDatabase.getInMemoryDatabase(application);
         userListDAO = db.userListModel();
-        mAllBrands = userListDAO.loadAllBrands();
+        mAllBrands = userListDAO.loadAllUser();
     }
 
     LiveData<List<UserList>> getAll() {
@@ -34,6 +34,10 @@ public class UserListRepository {
         new insertAsyncTask(userListDAO).execute(userList);
     }
 
+    public UserList searchId(int id) {
+        return userListDAO.loadUserById(id);
+    }
+
     private static class insertAsyncTask extends AsyncTask<UserList, Void, Void> {
 
         private UserListDAO mAsyncTaskDao;
@@ -43,8 +47,8 @@ public class UserListRepository {
         }
 
         @Override
-        protected Void doInBackground(UserList... brandLists) {
-            mAsyncTaskDao.insertBrand(brandLists[0]);
+        protected Void doInBackground(UserList... userLists) {
+            mAsyncTaskDao.insertUser(userLists[0]);
             return null;
         }
     }
