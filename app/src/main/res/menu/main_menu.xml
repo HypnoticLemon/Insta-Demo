@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activityViews.DrawerActivity">
+
+    <item
+        android:id="@+id/history"
+        android:title="Login History"
+        app:showAsAction="never" />
+
+</menu>
