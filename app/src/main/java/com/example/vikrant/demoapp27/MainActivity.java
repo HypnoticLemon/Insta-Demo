@@ -179,11 +179,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txtUserName.setText(userInfoHashmap.get("username"));
 
                 UserList userList = userViewModel.getUserFromId(Integer.parseInt(userInfoHashmap.get("id")));
-                if (userList != null) {
-                    Log.e(TAG, "handleMessage: userList not null");
-                } else {
-                    Log.e(TAG, "handleMessage: user list null");
-
+                if (userList == null) {
+                    UserList insertUserList = new UserList(userInfoHashmap.get("id"), userInfoHashmap.get("full_name"), userInfoHashmap.get("username"), userInfoHashmap.get("follows"), userInfoHashmap.get("followed_by"), userInfoHashmap.get("profile_picture"));
+                    userViewModel.insert(insertUserList);
                 }
 
                 Log.e(TAG, "counts: " + userInfoHashmap.get("counts"));

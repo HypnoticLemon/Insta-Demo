@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.vikrant.demoapp27.Util.RoundImageView;
 import com.example.vikrant.demoapp27.database.UserList;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,11 +37,23 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserRowHolder>
     @Override
     public void onBindViewHolder(UserRowHolder holder, int position) {
 
+        holder.txtName.setText(mUserLists.get(position).getName());
+        holder.txtFollower.setText(mUserLists.get(position).getFollows());
+        holder.txtFollowing.setText(mUserLists.get(position).getFollowed_by());
+        holder.txtUserName.setText(mUserLists.get(position).getUser_name());
+
+        Picasso.with(context)
+                .load(mUserLists.get(position).getProfile_pic())
+                .centerCrop()
+                .fit()
+                .into(holder.profileImage);
+
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return (mUserLists != null ? mUserLists.size() : 0);
     }
 
 
@@ -52,14 +65,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserRowHolder>
 
     public class UserRowHolder extends RecyclerView.ViewHolder {
 
-        private Button btnInsta;
         private TextView txtName, txtUserName, txtFollower, txtFollowing;
         private RoundImageView profileImage;
 
         public UserRowHolder(View itemView) {
             super(itemView);
 
-            btnInsta = itemView.findViewById(R.id.btnInsta);
             txtName = itemView.findViewById(R.id.txtName);
             txtFollower = itemView.findViewById(R.id.txtFollower);
             txtFollowing = itemView.findViewById(R.id.txtFollowing);

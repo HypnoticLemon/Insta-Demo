@@ -23,7 +23,6 @@ public class LoginHistoryActivity extends AppCompatActivity {
     private RecyclerView recyclerViewUserList;
     private UserViewModel userViewModel;
     private String TAG = LoginHistoryActivity.class.getSimpleName();
-    private int lastId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +52,6 @@ public class LoginHistoryActivity extends AppCompatActivity {
             public void onChanged(@Nullable List<UserList> userLists) {
                 userAdapter.setList(userLists);
                 if (userLists != null && userLists.size() > 0) {
-                    Log.e(TAG, "size : " + userLists.size());
-                    int size = userLists.size() - 1;
-                    lastId = Integer.parseInt(userLists.get(size).getId());
-                    Log.e(TAG, "LastId: " + lastId);
                 }
             }
         });

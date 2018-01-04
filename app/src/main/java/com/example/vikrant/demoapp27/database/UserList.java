@@ -23,12 +23,24 @@ public class UserList {
 
     public String followed_by;
 
-    public UserList(@NonNull String id, String name, String user_name, String follows, String followed_by) {
+    public String profile_pic;
+
+    public UserList(@NonNull String id, String name, String user_name, String follows, String followed_by, String profile_pic) {
         this.id = id;
         this.name = name;
         this.user_name = user_name;
         this.follows = follows;
         this.followed_by = followed_by;
+        this.profile_pic = profile_pic;
+    }
+
+
+    public String getProfile_pic() {
+        return profile_pic;
+    }
+
+    public void setProfile_pic(String profile_pic) {
+        this.profile_pic = profile_pic;
     }
 
     @NonNull
