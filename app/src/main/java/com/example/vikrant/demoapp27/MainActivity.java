@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onSuccess() {
-                btnInsta.setText("Disconnect");
+                btnInsta.setText("LogOut");
                 relativeDetails.setVisibility(View.VISIBLE);
                 mApp.fetchUserName(handler);
             }
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         if (mApp.hasAccessToken()) {
-            btnInsta.setText("Disconnect");
+            btnInsta.setText("LogOut");
             relativeDetails.setVisibility(View.VISIBLE);
             mApp.fetchUserName(handler);
         }
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (mApp.hasAccessToken()) {
             final AlertDialog.Builder builder = new AlertDialog.Builder(
                     MainActivity.this);
-            builder.setMessage("Disconnect from Instagram?")
+            builder.setMessage("LogOut from Instagram?")
                     .setCancelable(false)
                     .setPositiveButton("Yes",
                             new DialogInterface.OnClickListener() {
@@ -127,10 +127,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                     int id) {
                                     mApp.resetAccessToken();
                                     relativeDetails.setVisibility(View.GONE);
-                                    // btnConnect.setVisibility(View.VISIBLE);
+                                    // btnLogIn.setVisibility(View.VISIBLE);
                                     relativeDetails.setVisibility(View.GONE);
-                                    btnInsta.setText("Connect");
-                                    // tvSummary.setText("Not connected");
+                                    btnInsta.setText("LogIn");
+                                    // tvSummary.setText("Not LoggedIN");
                                 }
                             })
                     .setNegativeButton("No",
